@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import Lenis from "lenis";
+import { useState } from "react";
+import { ReactLenis } from "lenis/react";
 import { AnimatePresence, motion } from "motion/react";
 import Loader from "./components/Loader";
 import Navigation from "./components/Navigation";
@@ -15,30 +15,16 @@ import Background from "./components/Background";
 export default function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Premium Smooth Scrolling Setup via Lenis
-    const lenis = new Lenis({
+
+  return (
+    <ReactLenis root options={{
       duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       wheelMultiplier: 1,
       touchMultiplier: 2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
-  return (
+    }}>
     <div className="relative bg-[var(--bg-color)] text-[var(--text-primary)] min-h-screen transition-colors duration-500">
       <Cursor />
       <Background />
@@ -64,5 +50,6 @@ export default function App() {
         </motion.div>
       )}
     </div>
+    </ReactLenis>
   );
 }
