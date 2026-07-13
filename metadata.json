@@ -1,0 +1,6 @@
+{
+  "name": "Tanishq Pal Portfolio",
+  "description": "Premium interactive digital experience and portfolio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
