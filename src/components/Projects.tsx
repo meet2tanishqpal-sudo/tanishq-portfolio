@@ -43,16 +43,16 @@ function ProjectCard({
         
       >
         <div className="flex flex-col items-start md:flex-row md:items-center gap-0 md:gap-6 mb-3 md:mb-8 w-full max-w-full">
-          <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-[var(--text-secondary)] uppercase font-medium mb-1 md:mb-0">
+          <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-[var(--text-secondary)] uppercase font-medium mb-3 md:mb-0">
             {number}
           </span>
           <div className="w-12 h-[1px] bg-[var(--border-color)] mb-4 md:mb-0 shrink-0"></div>
-          <span 
-            className="text-[18px] sm:text-[20px] md:text-[26px] text-left font-sans tracking-[0.15em] md:tracking-[0.3em] text-[var(--text-primary)] uppercase font-bold leading-[1.15] md:leading-normal md:h-[50px] w-full max-w-full md:w-[401px] whitespace-normal"
+          <h4 
+            className="text-[18px] sm:text-[20px] md:text-[26px] text-left font-sans tracking-[0.15em] md:tracking-[0.3em] text-[var(--text-primary)] uppercase font-bold leading-[1.15] md:leading-normal max-w-[220px] md:max-w-none md:w-[401px] whitespace-normal"
             style={{ wordBreak: 'normal', overflowWrap: 'break-word' }}
           >
             {subtitle}
-          </span>
+          </h4>
         </div>
         
         <h3 
