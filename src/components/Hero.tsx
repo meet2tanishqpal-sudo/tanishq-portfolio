@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
+import { motion, useSpring, useMotionValue } from "motion/react";
 import { ArrowDown, Github, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
 import { Typewriter } from "./ui/Typewriter";
 import { MagneticButton } from "./ui/Button";
@@ -28,15 +28,7 @@ export default function Hero() {
   const springX = useSpring(mouseX, { stiffness: 40, damping: 25, mass: 0.5 });
   const springY = useSpring(mouseY, { stiffness: 40, damping: 25, mass: 0.5 });
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
 
-  const yText = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const yImage = useTransform(scrollYProgress, [0, 1], [0, 50]);
-  const opacityImage = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <section 
@@ -49,7 +41,7 @@ export default function Hero() {
         
         {/* Left: Typography */}
         <motion.div 
-          style={{ y: yText, opacity: opacityText }} 
+           
           className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-8 lg:mt-0"
         >
           <motion.h1 
@@ -132,7 +124,7 @@ export default function Hero() {
 
         {/* Right: Portrait */}
         <motion.div 
-          style={{ y: yImage, opacity: opacityImage }}
+          
           className="flex-1 w-full flex justify-center lg:justify-end relative"
         >
           {/* Ambient Glow Behind Portrait */}

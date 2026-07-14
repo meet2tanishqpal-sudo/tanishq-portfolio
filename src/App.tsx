@@ -18,12 +18,15 @@ export default function App() {
 
   return (
     <ReactLenis root options={{
-      duration: 1.5,
+      duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       wheelMultiplier: 1,
       touchMultiplier: 2,
+      lerp: 0.1,
+      smoothWheel: true,
+      syncTouch: true
     }}>
     <div className="relative bg-[var(--bg-color)] text-[var(--text-primary)] min-h-screen transition-colors duration-500">
       <Cursor />

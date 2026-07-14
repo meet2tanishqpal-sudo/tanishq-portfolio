@@ -25,15 +25,6 @@ const Highlight = ({ children }: { children: React.ReactNode }) => {
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  const { scrollYProgress: sectionProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Parallax effects
-  const yParallax = useTransform(sectionProgress, [0, 1], [100, -100]);
-  const yParallaxSlow = useTransform(sectionProgress, [0, 1], [50, -50]);
-
   return (
     <section 
       id="about" 
@@ -47,13 +38,11 @@ export default function About() {
              style={{ backgroundImage: "linear-gradient(to right, var(--text-primary) 1px, transparent 1px), linear-gradient(to bottom, var(--text-primary) 1px, transparent 1px)", backgroundSize: "4rem 4rem" }} 
         />
         
-        {/* Soft Radial Gradients */}
-        <motion.div 
-          style={{ y: yParallaxSlow }}
+        {/* Soft Radial Gradients (Static now to save performance) */}
+        <div 
           className="absolute top-0 right-0 w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] bg-[#F6E8C3] dark:bg-[#4A4232] rounded-full opacity-[0.05] dark:opacity-[0.03] blur-[100px] translate-x-1/3 -translate-y-1/3" 
         />
-        <motion.div 
-          style={{ y: yParallax }}
+        <div 
           className="absolute bottom-0 left-0 w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] bg-[var(--text-primary)] rounded-full opacity-[0.02] blur-[120px] -translate-x-1/3 translate-y-1/3" 
         />
         
@@ -61,9 +50,9 @@ export default function About() {
         <div className="hidden md:block absolute top-40 left-10 w-24 h-24 border border-[var(--text-primary)] opacity-10 rounded-full" />
         <div className="hidden md:block absolute bottom-40 right-20 w-32 h-32 border border-[var(--text-primary)] opacity-10 rotate-45" />
         
-        {/* Floating dots */}
-        <motion.div style={{ y: yParallax }} className="hidden md:block absolute top-1/4 right-1/4 w-1 h-1 bg-[var(--text-primary)] opacity-30 rounded-full" />
-        <motion.div style={{ y: yParallaxSlow }} className="hidden md:block absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-[var(--text-primary)] opacity-20 rounded-full" />
+        {/* Floating dots (Static now to save performance) */}
+        <div className="hidden md:block absolute top-1/4 right-1/4 w-1 h-1 bg-[var(--text-primary)] opacity-30 rounded-full" />
+        <div className="hidden md:block absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-[var(--text-primary)] opacity-20 rounded-full" />
       </div>
 
       {/* MOBILE LAYOUT (< 1024px) */}
@@ -74,7 +63,7 @@ export default function About() {
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ margin: "-10% 0px" }}
+            viewport={{ margin: "-10% 0px", once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif text-[13.5vw] md:text-[5.5rem] leading-[1] tracking-[-0.03em] text-[var(--text-primary)] whitespace-nowrap relative z-10"
           >
@@ -114,7 +103,7 @@ export default function About() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ margin: "-10% 0px" }}
+                viewport={{ margin: "-10% 0px", once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
                 <span className="text-xl lg:text-3xl tracking-[0.2em] uppercase font-bold text-[var(--text-primary)] block mb-6">
@@ -130,7 +119,7 @@ export default function About() {
               <motion.div 
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
-                viewport={{ margin: "-10% 0px" }}
+                viewport={{ margin: "-10% 0px", once: true }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                 className="w-[1px] h-48 bg-[var(--text-primary)] opacity-15 mt-12 origin-top"
               />

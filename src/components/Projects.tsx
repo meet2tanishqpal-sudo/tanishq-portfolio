@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { ArrowUpRight, Github } from "lucide-react";
 import { MagneticButton } from "./ui/Button";
 
@@ -30,14 +30,7 @@ function ProjectCard({
 }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start 85%", "end 30%"]
-  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-  const y = useTransform(scrollYProgress, [0, 0.4], [100, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
 
   return (
     <motion.div 
@@ -47,7 +40,7 @@ function ProjectCard({
       {/* Content Side */}
       <motion.div 
         className="w-full lg:w-[45%] flex flex-col items-start z-20"
-        style={{ opacity, y }}
+        
       >
         <div className="flex items-center gap-6 mb-8">
           <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-[var(--text-secondary)] uppercase font-medium">
@@ -120,12 +113,12 @@ function ProjectCard({
       {/* Image Side */}
       <motion.div 
         className="w-full lg:w-[50%] relative h-[50vh] lg:h-[80vh] flex items-center justify-center perspective-[2000px]"
-        style={{ opacity, scale }}
+        
       >
         <div className="project-image relative w-full h-full rounded-[2.5rem] overflow-hidden group transition-all duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] dark:hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.7)] transform-gpu hover:-translate-y-2">
           <motion.div 
             className="absolute inset-0 w-full h-full transform-gpu"
-            style={{ y: useTransform(scrollYProgress, [0, 1], [-20, 20]) }}
+            
           >
             {customVisual}
           </motion.div>
