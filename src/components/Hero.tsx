@@ -109,7 +109,7 @@ export default function Hero() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
             className="mt-10 flex items-center gap-6 justify-center lg:justify-start"
           >
-            <a href="https://github.com/Tanishq102004" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-[var(--text-primary)] opacity-60 hover:opacity-100 hover:text-[#333] dark:hover:text-[#ffffff] transition-all duration-300">
+            <a href="https://github.com/meet2tanishqpal-sudo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-[var(--text-primary)] opacity-60 hover:opacity-100 hover:text-[#333] dark:hover:text-[#ffffff] transition-all duration-300">
               <Github className="w-6 h-6" />
             </a>
             <a href="https://www.linkedin.com/in/tanishq-pal-475a852a8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-[var(--text-primary)] opacity-60 hover:opacity-100 hover:text-[#0A66C2] transition-all duration-300">
