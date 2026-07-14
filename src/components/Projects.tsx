@@ -42,17 +42,23 @@ function ProjectCard({
         className="w-full lg:w-[45%] flex flex-col items-start z-20"
         
       >
-        <div className="flex items-center gap-6 mb-8">
-          <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-[var(--text-secondary)] uppercase font-medium">
+        <div className="flex flex-col items-start md:flex-row md:items-center gap-0 md:gap-6 mb-3 md:mb-8 w-full max-w-full">
+          <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-[var(--text-secondary)] uppercase font-medium mb-1 md:mb-0">
             {number}
           </span>
-          <div className="w-12 h-[1px] bg-[var(--border-color)]"></div>
-          <span className="h-[50px] w-[401px] text-[26px] text-left font-sans tracking-[0.3em] text-[var(--text-primary)] uppercase font-bold">
+          <div className="w-12 h-[1px] bg-[var(--border-color)] mb-4 md:mb-0 shrink-0"></div>
+          <span 
+            className="text-[18px] sm:text-[20px] md:text-[26px] text-left font-sans tracking-[0.15em] md:tracking-[0.3em] text-[var(--text-primary)] uppercase font-bold leading-[1.15] md:leading-normal md:h-[50px] w-full max-w-full md:w-[401px] whitespace-normal"
+            style={{ wordBreak: 'normal', overflowWrap: 'break-word' }}
+          >
             {subtitle}
           </span>
         </div>
         
-        <h3 className="font-['Times_New_Roman'] text-[35px] font-bold tracking-[-0.03em] text-[var(--text-primary)] leading-[1.05] mb-8">
+        <h3 
+          className="font-['Times_New_Roman'] text-[32px] sm:text-[35px] font-bold tracking-[-0.03em] text-[var(--text-primary)] leading-[1.05] mb-5 md:mb-8 w-full max-w-full whitespace-normal"
+          style={{ wordBreak: 'normal', overflowWrap: 'break-word' }}
+        >
           {title}
         </h3>
         
